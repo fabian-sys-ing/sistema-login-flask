@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Sistema Login</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 50px; background: #f4f4f4; }
+        .btn { padding: 10px 20px; background: #0366d6; color: white; text-decoration: none; border-radius: 5px; margin: 5px; }
+        .btn-green { background: #2ea44f; }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido al Sistema Seguro</h1>
+    <p>Esta página es pública. Cualquiera puede verla.</p>
+    
+    {% if current_user.is_authenticated %}
+        <a href="/dashboard" class="btn btn-green">Ir a mi Panel Privado</a>
+        <a href="/logout" class="btn">Cerrar Sesión</a>
+    {% else %}
+        <a href="/login" class="btn">Iniciar Sesión</a>
+        <a href="/register" class="btn btn-green">Registrarse</a>
+    {% endif %}
+</body>
+</html>

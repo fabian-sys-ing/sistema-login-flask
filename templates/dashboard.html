@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Privado</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 { color: #333; margin-bottom: 20px; }
+        p { color: #666; margin: 15px 0; line-height: 1.6; }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #dc3545;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        .btn:hover { background: #c82333; transform: translateY(-2px); }
+        .icon { font-size: 48px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🔐</div>
+        <h1>¡Hola, {{ username }}! 👋</h1>
+        <p>Has ingresado al <strong>PANEL PRIVADO</strong></p>
+        <p>Esta página solo puede ser vista por usuarios autenticados.</p>
+        <p>Si intentas entrar aquí sin login, el sistema te expulsará.</p>
+        <a href="/perfil" style="display:inline-block; padding:12px 30px; background:#28a745; color:white; text-decoration:none; border-radius:8px; margin:10px;">Ver Mi Perfil</a>
+        <a href="/logout" class="btn">Cerrar Sesión</a>
+    </div>
+</body>
+</html>

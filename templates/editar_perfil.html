@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Perfil</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 { color: #333; margin-bottom: 10px; text-align: center; }
+        .subtitle { color: #666; text-align: center; margin-bottom: 30px; }
+        label { display: block; color: #333; margin-bottom: 5px; font-weight: 500; }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        input:focus { outline: none; border-color: #667eea; }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            margin: 10px 0;
+        }
+        .btn-submit { background: #667eea; color: white; }
+        .btn-submit:hover { background: #5568d3; }
+        .btn-cancel { background: #6c757d; color: white; text-decoration: none; }
+        .alert {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .alert-error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>✏️ Editar Perfil</h2>
+        <p class="subtitle">Cambia tu nombre de usuario</p>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form method="POST">
+            <label>Nuevo Nombre de Usuario:</label>
+            <input type="text" name="username" value="{{ username }}" required>
+            
+            <button type="submit" class="btn btn-submit">Guardar Cambios</button>
+        </form>
+        <a href="/perfil" class="btn btn-cancel">Cancelar</a>
+    </div>
+</body>
+</html>

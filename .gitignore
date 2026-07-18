@@ -1,0 +1,12 @@
+# Archivos de Python
+_pycache_/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Base de datos (no subir datos de prueba)
+clientes.db
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
